@@ -1,0 +1,11 @@
+{
+  "name": "carlic-blog",
+  "version": "1.0.0",
+  "description": "My personal blog with react, express, and mongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CarliC",
+  "license": "ISC"
+}

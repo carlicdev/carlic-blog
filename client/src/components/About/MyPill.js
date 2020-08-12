@@ -3,7 +3,7 @@ import React from 'react'
 const MyPill = () => {
     return (
         <div className='container'>
-            <div className='rounded-pill shadow my-pill mx-auto px-3 py-4 my-5'>
+            <div className='rounded-pill bg-light shadow my-pill mx-auto px-3 py-4 my-5'>
                 <div className='row'>
                     <div className='col-5'>
                         <div className='rounded-circle bg-white mt-4 ml-3'>

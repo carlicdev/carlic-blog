@@ -1,16 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const AddFile = () => {
     const [ file, setFile ] = useState('');
-    const [ filename, setFilename ] = useState('Choose file');
     const [ title, setTitle ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ content, setContent ] = useState('');
 
     const onChange = e => {
         setFile(e.target.files[0]);
-        setFilename(e.target.files[0].name)
     } 
 
     const onSubmit = async e => {
@@ -22,7 +20,7 @@ const AddFile = () => {
         formData.append('content', content);
 
         try {
-            const res = await axios.post('/api/posts/adding-file', formData, {
+            await axios.post('/api/posts/adding-file', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

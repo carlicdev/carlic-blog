@@ -3,6 +3,8 @@ const cors = require('cors');
 const path = require('path');
 const morgan = require('morgan');
 const multer = require('multer');
+const session = require('express-session');
+const passport = require('passport')
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -11,6 +13,8 @@ require('./db/db');
 
 // Routers
 const postRouter = require('./routes/posts');
+const userRouter = require('./routes/users');
+const contactRouter = require('./routes/contacts');
 
 // Settings
 app.set('PORT', process.env.PORT || 5000);
@@ -26,12 +30,25 @@ app.use(multer({dest: path.join(__dirname, '../client/src/images/temp')}).single
 // Serve React static files
 app.use(express.static(path.join(__dirname, './client/build')));
 
+
+// Sessions
+app.use(
+    session({
+        secret: 'its-a-secret',
+        resave: false,
+        saveUninitialized: false
+    })
+    );
+    
+// Passport
+app.use(passport.initialize());
+app.use(passport.session());
+    
+// Recuerda poner las rutas abajo de Passport
 // Api
 app.use('/api/posts', postRouter);
-
-// Session
-
-// Passport
+app.use('/api/user', userRouter);
+app.use('/api/contact', contactRouter);
 
 // Start server
 app.listen(app.get('PORT'), () => {

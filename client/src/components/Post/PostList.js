@@ -8,7 +8,6 @@ const PostList = () => {
     const sortedPosts = posts.sort((a,b) => {
         let postA = a.createdAt.substring(0, 10).split('-').join('');
         let postB = b.createdAt.substring(0, 10).split('-').join('');
-        console.log(postB)
         return postB - postA;
     });
 
@@ -23,10 +22,10 @@ const PostList = () => {
     console.log(posts)
 
     return (
-        <div className='container'>
+        <div className='container my-5'>
             <div className='row'>
                 {sortedPosts.map(post => {
-                return   <div key={post.slug} className='card text-center border-0 bg-light col-md-4 my-3 mx-auto p-0'>
+                return   <div key={post.slug} className='card shadow text-center border-0 bg-light col-md-4 my-3 mx-auto p-0'>
                                 <img className='card-img-top' src={require(`../../images/temp/${post.imageUrl}`)} alt='img'/>
                                 <div className='card-body'>
                                     <h4 className='card-title'>{post.title}</h4>
@@ -37,8 +36,8 @@ const PostList = () => {
                                         </small>
                                     <p className='card-text'>{post.description}</p>
                                     <Link to={`posts/${post.slug}`}>
-                                        <button className='btn btn-success'>
-                                            Leer mas
+                                        <button className='btn btn-navy shadow-sm text-light'>
+                                            Read more
                                         </button>
                                     </Link>
                                 </div>

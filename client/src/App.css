@@ -2,6 +2,10 @@
     --navyBlue: #4b4276;
 }
 
+p {
+    letter-spacing: 1px;
+}
+
 .card {
     width: 25rem;
 }
@@ -21,8 +25,7 @@
 }
 
 .my-pill {
-    background-color: var(--navyBlue);
-    color:rgb(248, 244, 244);
+    color:var(--navyBlue);
     width: 27rem;
 }
 
@@ -45,4 +48,23 @@ blockquote {
     max-width: 25rem;
     margin-left: auto;
     margin-right: auto;
+}
+
+.post-img {
+    width: 40rem;
+    height: 25rem;
+}
+
+.img-section {
+    width: 20rem;
+    height:15rem;
+}
+
+.card-section {
+    width: 20rem;
+}
+
+.no-decoration {
+    text-decoration: none;
+    color: black;
 }
